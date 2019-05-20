@@ -6,5 +6,6 @@ addons:
             - aspell
             - aspell-en
             - jq
+            - linkchecker
 script:
     - bash script.sh
