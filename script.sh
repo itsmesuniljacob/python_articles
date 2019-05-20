@@ -17,4 +17,24 @@ then
     exit 0;
 fi
 
-# Testing the PR
+echo -e "$BLUE>> Following markdown files were changed in this pull request (commit range: $TRAVIS_COMMIT_RANGE):$NC"
+echo "$MARKDOWN_FILES_CHANGED"
+
+# cat all markdown files that changed
+TEXT_CONTENT_WITHOUT_METADATA=`cat $(echo "$MARKDOWN_FILES_CHANGED" | sed -E ':a;N;$!ba;s/\n/ /g')`
+
+echo -e "$BLUE>> Checking in 'en' (many technical words are in English anyway)...$NC"
+MISSPELLED=`echo "$TEXT_CONTENT_WITHOUT_METADATA" | aspell --lang=en --encoding=utf-8 --personal=./.aspell.en.pws list | sort -u`
+
+NB_MISSPELLED=`echo "$MISSPELLED" | wc -l`
+
+if [ "$NB_MISSPELLED" -gt 0 ]
+then
+    echo -e "$RED>> Words that might be misspelled, please check:$NC"
+    MISSPELLED=`echo "$MISSPELLED" | sed -E ':a;N;$!ba;s/\n/, /g'`
+    echo "$MISSPELLED"
+    COMMENT="$NB_MISSPELLED words might be misspelled, please check them: $MISSPELLED"
+else
+    COMMENT="No spelling errors, congratulations!"
+    echo -e "$GREEN>> $COMMENT $NC"
+fi
