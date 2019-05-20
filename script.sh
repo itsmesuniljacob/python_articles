@@ -21,15 +21,15 @@ echo -e "$BLUE>> Following markdown files were changed in this pull request (com
 echo "$MARKDOWN_FILES_CHANGED"
 
 # cat all markdown files that changed
-TEXT_CONTENT_WITHOUT_METADATA=`cat $(echo "$MARKDOWN_FILES_CHANGED" | sed -E ':a;N;$!ba;s/\n/ /g')`
+TEXT_CONTENT_WITHOUT_METADATA=$(cat $(echo "$MARKDOWN_FILES_CHANGED" | sed -E ':a;N;$!ba;s/\n/ /g'))
 # remove metadata tags
-TEXT_CONTENT_WITHOUT_METADATA=`echo "$TEXT_CONTENT_WITHOUT_METADATA" | grep -v -E '^(layout:|permalink:|date:|date_gmt:|authors:|categories:|tags:|cover:)(.*)'`
+TEXT_CONTENT_WITHOUT_METADATA=$(echo "$TEXT_CONTENT_WITHOUT_METADATA" | grep -v -E '^(layout:|permalink:|date:|date_gmt:|authors:|categories:|tags:|cover:)(.*)')
 # remove { } attributes
-TEXT_CONTENT_WITHOUT_METADATA=`echo "$TEXT_CONTENT_WITHOUT_METADATA" | sed -E 's/\{:([^\}]+)\}//g'`
+TEXT_CONTENT_WITHOUT_METADATA=$(echo "$TEXT_CONTENT_WITHOUT_METADATA" | sed -E 's/\{:([^\}]+)\}//g')
 # remove html
-TEXT_CONTENT_WITHOUT_METADATA=`echo "$TEXT_CONTENT_WITHOUT_METADATA" | sed -E 's/<([^<]+)>//g'`
+TEXT_CONTENT_WITHOUT_METADATA=$(echo "$TEXT_CONTENT_WITHOUT_METADATA" | sed -E 's/<([^<]+)>//g')
 # remove code blocks
-TEXT_CONTENT_WITHOUT_METADATA=`echo "$TEXT_CONTENT_WITHOUT_METADATA" | sed  -n '/```/,/```/ !p'`
+TEXT_CONTENT_WITHOUT_METADATA=$(echo "$TEXT_CONTENT_WITHOUT_METADATA" | sed  -n '/```/,/```/ !p')
 # remove links
 TEXT_CONTENT_WITHOUT_METADATA=`echo "$TEXT_CONTENT_WITHOUT_METADATA" | sed -E 's/http(s)?:\/\/([^ ]+)//g'`
 
