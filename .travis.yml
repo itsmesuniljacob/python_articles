@@ -6,3 +6,5 @@ addons:
             - aspell
             - aspell-en
             - jq
+after_success:
+  - ./script.sh
