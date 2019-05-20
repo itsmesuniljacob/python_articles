@@ -1,0 +1,8 @@
+language: bash
+sudo: true
+addons:
+    apt:
+        packages:
+            - aspell
+            - aspell-en
+            - jq
