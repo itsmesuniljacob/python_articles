@@ -40,7 +40,7 @@ echo -e "$BLUE>> Checking in 'en' (many technical words are in English anyway)..
 MISSPELLED=`echo "$TEXT_CONTENT_WITHOUT_METADATA" | aspell --lang=en --encoding=utf-8 --personal=./.aspell.en.pws list | sort -u`
 
 NB_MISSPELLED=`echo "$MISSPELLED" | wc -l`
-
+echo "$NB_MISSPELLED"
 if [ "$NB_MISSPELLED" -gt 0 ]
 then
     echo -e "$RED>> Words that might be misspelled, please check:$NC"
