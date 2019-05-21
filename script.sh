@@ -48,7 +48,7 @@ else
   CHAR_FLAG="n"
 fi
 
-if [[ ("$NB_MISSPELLED" -gt 0) && ("$CHAR_FLAG") == "y" ]]
+if [[ ("$NB_MISSPELLED" -gt 0) && ("$CHAR_FLAG" == "y") ]]
 then
     echo -e "$RED>> Words that might be misspelled, please check:$NC"
     MISSPELLED=$(echo "$MISSPELLED" | sed -E ':a;N;$!ba;s/\n/, /g')
