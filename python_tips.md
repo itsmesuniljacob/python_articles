@@ -359,7 +359,7 @@ In the above case we have two options:
    >>> a, b, *_, d = (1,2,3,4,5)
    ```
 
-## Conclusion
+## Concluion
 
 Though there are lot of life hacks, when using Python programming this article tried to cover some of them. More information on these great life hacks can be accessed at below sites:
 
