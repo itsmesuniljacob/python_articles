@@ -31,20 +31,20 @@ TEXT_CONTENT_WITHOUT_METADATA=$(echo "$TEXT_CONTENT_WITHOUT_METADATA" | sed -E '
 # remove code blocks
 TEXT_CONTENT_WITHOUT_METADATA=$(echo "$TEXT_CONTENT_WITHOUT_METADATA" | sed  -n '/```/,/```/ !p')
 # remove links
-TEXT_CONTENT_WITHOUT_METADATA=`echo "$TEXT_CONTENT_WITHOUT_METADATA" | sed -E 's/http(s)?:\/\/([^ ]+)//g'`
+TEXT_CONTENT_WITHOUT_METADATA=$(echo "$TEXT_CONTENT_WITHOUT_METADATA" | sed -E 's/http(s)?:\/\/([^ ]+)//g')
 
 echo -e "$BLUE>> Text content that will be checked (without metadata, html, and links):$NC"
 echo "$TEXT_CONTENT_WITHOUT_METADATA"
 
 echo -e "$BLUE>> Checking in 'en' (many technical words are in English anyway)...$NC"
-MISSPELLED=`echo "$TEXT_CONTENT_WITHOUT_METADATA" | aspell --lang=en --encoding=utf-8 --personal=./.aspell.en.pws list | sort -u`
+MISSPELLED=$(echo "$TEXT_CONTENT_WITHOUT_METADATA" | aspell --lang=en --encoding=utf-8 --personal=./.aspell.en.pws list | sort -u)
 
-NB_MISSPELLED=`echo "$MISSPELLED" | wc -l`
+NB_MISSPELLED=$(echo "$MISSPELLED" | wc -l)
 echo "$NB_MISSPELLED"
 if [ "$NB_MISSPELLED" -gt 0 ]
 then
     echo -e "$RED>> Words that might be misspelled, please check:$NC"
-    MISSPELLED=`echo "$MISSPELLED" | sed -E ':a;N;$!ba;s/\n/, /g'`
+    MISSPELLED=$(echo "$MISSPELLED" | sed -E ':a;N;$!ba;s/\n/, /g')
     echo "$MISSPELLED"
     COMMENT="$NB_MISSPELLED words might be misspelled, please check them: $MISSPELLED"
 else
