@@ -40,8 +40,15 @@ echo -e "$BLUE>> Checking in 'en' (many technical words are in English anyway)..
 MISSPELLED=$(echo "$TEXT_CONTENT" | aspell --lang=en --encoding=utf-8 --personal=./.aspell.en.pws list | sort -u)
 
 NB_MISSPELLED=$(echo "$MISSPELLED" | wc -l)
-#echo "$NB_MISSPELLED"
-if [ "$NB_MISSPELLED" -gt 1 ]
+FIND_FIRST_BYTE=$(echo $MISSPELLED | awk '{print$1}' | cut -c1)
+if [[ "$FIND_FIRST_BYTE" =~ [a-zA-Z0-9] ]]
+then
+  CHAR_FLAG="y"
+else
+  CHAR_FLAG="n"
+fi
+
+if [[ ("$NB_MISSPELLED" -gt 0) && ("$CHAR_FLAG" == "y") ]]
 then
     echo -e "$RED>> Words that might be misspelled, please check:$NC"
     MISSPELLED=$(echo "$MISSPELLED" | sed -E ':a;N;$!ba;s/\n/, /g')
