@@ -41,7 +41,7 @@ MISSPELLED=$(echo "$TEXT_CONTENT_WITHOUT_METADATA" | aspell --lang=en --encoding
 
 NB_MISSPELLED=$(echo "$MISSPELLED" | wc -l)
 echo "$NB_MISSPELLED"
-if [ "$NB_MISSPELLED" -gt 0 ]
+if [ "$NB_MISSPELLED" -gt 1 ]
 then
     echo -e "$RED>> Words that might be misspelled, please check:$NC"
     MISSPELLED=$(echo "$MISSPELLED" | sed -E ':a;N;$!ba;s/\n/, /g')
