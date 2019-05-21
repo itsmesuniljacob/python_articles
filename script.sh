@@ -52,10 +52,10 @@ else
     echo -e "$GREEN>> $COMMENT $NC"
 fi
 
-echo -e "$BLUE>> Sending results in a comment on the Github pull request #$TRAVIS_PULL_REQUEST:$NC"
-curl -i -H "Authorization: token $GITHUB_TOKEN" \
-    -H "Content-Type: application/json" \
-    -X POST -d "{\"body\":\"$COMMENT\"}" \
-    https://api.github.com/repos/xylene1980/article/issues/$TRAVIS_PULL_REQUEST/comments
+# echo -e "$BLUE>> Sending results in a comment on the Github pull request #$TRAVIS_PULL_REQUEST:$NC"
+# curl -i -H "Authorization: token $GITHUB_TOKEN" \
+#     -H "Content-Type: application/json" \
+#     -X POST -d "{\"body\":\"$COMMENT\"}" \
+#     https://api.github.com/repos/xylene1980/article/issues/$TRAVIS_PULL_REQUEST/comments
 
 exit 0
