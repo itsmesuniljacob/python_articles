@@ -29,7 +29,7 @@ TEXT_CONTENT=$(echo "$TEXT_CONTENT" | sed -E 's/\{:([^\}]+)\}//g')
 # remove html
 TEXT_CONTENT=$(echo "$TEXT_CONTENT" | sed -E 's/<([^<]+)>//g')
 # remove code blocks
-TEXT_CONTENT=$(echo "$TEXT_CONTENT" | sed  -n '/```/,/```/ !p')
+TEXT_CONTENT=$(echo "$TEXT_CONTENT" | sed -n '/```/,/```/ !p')
 # remove links
 TEXT_CONTENT=$(echo "$TEXT_CONTENT" | sed -E 's/http(s)?:\/\/([^ ]+)//g')
 
