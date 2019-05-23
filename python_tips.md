@@ -1,6 +1,6 @@
 # Python Language - Tips & Tricks
 
-Python is an interpreted, high level, general purpose programming language which was initially designed by Guido van Rossum in 1991. Python has evolved over the years and is one of the top 5 popular programming languages as of May 2019, as per [TIOBE index][6].  Code readability, simplified syntax, compatibility with many operating systems, robust libraries makes the language widely used for creating a great applications. 
+Python is an interpreted, high level, general purpose programming language which was initially designed by Guido van Rossum in 1991. Python has evolved over the years and is one of the top 5 popular programming languages as of May 2019, as per [TIOBE index][6].  Code readability, simplified syntax, compatibility with many operating systems, robust libraries makes the language widely used for creating a great applications.
 
 While Python is widely used nowadays, it's also better to know a language in terms of it's disadvantages as well. No language is perfect, some are better than others. Some of the weak spots of the language is as below:
 
@@ -206,8 +206,6 @@ Different file opening modes are as follows:
 
    Syntax: `tell()`
 
-
-
    ```python
    fileobj = open('test.txt')
    x = fileobj.tell()  
@@ -244,7 +242,7 @@ if a < b:
 else:
     min = b
 print(min)
-# this would return the output of 10 
+# this would return the output of 10
 ```
 The above code can be written in a single line as below:
 
