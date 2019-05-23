@@ -129,7 +129,7 @@ The Python language has a set of functions readily available for use. These func
        flush: whether to forcibly flush the stream.
    ```
 
-### Opeing and Closing files in Python
+### Opening and Closing files in Python
 
 Python supports file handling and allow users to read and write to files , along with many other file operations. File handling in Python requires no importing of modules.
 
