@@ -12,6 +12,7 @@ Python is a programming language as well as scripting language. Some of the feat
 2. Free ( Open - Source)
 3. Portable
 
+
 There are two major versions of Python : 2.x and 3.x. Both are quite different. The samples shown in this article is using 3.x version of Python.  3.x is non-backward compatible version of Python and hence it is recommended to use 3.x version of Python, when building a new application. Below is the most well known change between Python 2.x and 3.x
 
 ```python
