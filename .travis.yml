@@ -1,4 +1,4 @@
-language: bash
+language: shell
 sudo: true
 addons:
     apt:
@@ -8,4 +8,5 @@ addons:
             - jq
             - linkchecker
 script:
+    - bash -c 'shopt -s globstar; shellcheck **/*.{sh,ksh,bash}'
     - bash script.sh
