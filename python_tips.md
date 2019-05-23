@@ -20,7 +20,6 @@ There are two major versions of Python : 2.x and 3.x. Both are quite different. 
 # Python 3.x syntax below:
 >>> print('Hello World')
 ```
-
 > `print` is a statement in Python 2.x
 >
 > `print` is a function in Python 3.x
