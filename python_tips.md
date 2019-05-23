@@ -36,8 +36,6 @@ The Python language has a set of functions readily available for use. These func
 
    The syntax of dir() function is `dir([object])`. It takes only one argument.
 
-
-
    ```python
    >>> x = 10
    >>> dir(x)
@@ -55,8 +53,6 @@ The Python language has a set of functions readily available for use. These func
    >>> y.upper()
    'HELLO WORLD'
    ```
-
-
 
 2. #### type() function:
 
@@ -133,9 +129,7 @@ The Python language has a set of functions readily available for use. These func
        flush: whether to forcibly flush the stream.
    ```
 
-
-
-### Opening and Closing files in Python
+### Opeing and Closing files in Python
 
 Python supports file handling and allow users to read and write to files , along with many other file operations. File handling in Python requires no importing of modules.
 
