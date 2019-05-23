@@ -2,17 +2,36 @@
 
 Python is an interpreted, high level, general purpose programming language which was initially designed by Guido van Rossum in 1991. Python has evolved over the years and is one of the top 5 popular programming languages as of May 2019, as per [TIOBE index][6].  Code readability, simplified syntax, compatibility with many operating systems, robust libraries makes the language widely used for creating a great applications.
 
+While Python is widely used nowadays, it's also better to know a language in terms of it's disadvantages as well. No language is perfect, some are better than others. Some of the weak spots of the language is as below:
+
+1. Python is not a preferred language for mobile computing
+
+2. Susceptible to run time errors, since Python is dynamically typed language; it only translates and type-checks code it's executing on
+
+   ```python
+   def dynamic(a):
+       if a > 0:
+           print('Am dynamically typed')
+       else:
+           print("3"+5)
+   dynamic(2)
+   ```
+
+   Since, Python is both interpreted and dynamically typed, the else block is never executes.
+
+3. Does not have access modifiers
+
 > Quick Note: Python implementation consists of an interpreter. However, some Python implementations, do consist of just-in-time compiler that will compile Python byte code into native machine code.
 
 Source code is translated into byte code, which is then run by a Python virtual machine. The code is automatically compiled, but then interpreted.
 
 Python is a programming language as well as scripting language. Some of the features of Python are listed below:
 
-1. Object - Oriented
-2. Free ( Open - Source)
+1. Object Oriented
+2. Free ( Open Source)
 3. Portable
 
-There are two major versions of Python : 2.x and 3.x. Both are quite different. The samples shown in this article is using 3.x version of Python.  3.x is non-backward compatible version of Python and hence it is recommended to use 3.x version of Python, when building a new application. Below is the most well known change between Python 2.x and 3.x
+There are two major versions of Python : 2.x and 3.x. Both are quite different. The samples shown in this article are using 3.x version of Python.  3.x is non-backward compatible version of Python and hence it is recommended to use 3.x version of Python, when building a new application. Below is the most well known change between Python 2.x and 3.x:
 
 ```python
 # Python 2.x syntax below:
@@ -20,12 +39,13 @@ There are two major versions of Python : 2.x and 3.x. Both are quite different. 
 # Python 3.x syntax below:
 >>> print('Hello World')
 ```
-
 > `print` is a statement in Python 2.x
 >
 > `print` is a function in Python 3.x
 
-This article would discuss some of the useful stubs while working with Python language. It's assumed that readers have basic knowledge of programming and Python language. Some of the tips & tricks while using Python language are as below:
+This article would discuss some of the useful stubs while working with Python language. It's assumed that readers have basic knowledge of programming and Python language. The inspiration for this article was of the fact of writing readable and cleaner code. A later series of this article will be followed.
+
+Some of the tips & tricks while using Python language are as below:
 
 ### Built - Ins
 
@@ -36,8 +56,6 @@ The Python language has a set of functions readily available for use. These func
    This function returns a list of valid attributes for the given object. This is a great function to determine the available attributes of an object.
 
    The syntax of dir() function is `dir([object])`. It takes only one argument.
-
-   
 
    ```python
    >>> x = 10
@@ -57,11 +75,9 @@ The Python language has a set of functions readily available for use. These func
    'HELLO WORLD'
    ```
 
-   
-
 2. #### type() function:
 
-   This function returns the type of an object. 
+   This function returns the type of an object.
 
    Syntax: `type(object)`
 
@@ -72,38 +88,38 @@ The Python language has a set of functions readily available for use. These func
 	<class 'str'>
 	```
 
-​	It's an useful function, if we want to process only specific type of elements.
+​	It's a useful function, if we want to process only specific type of elements.
 
 3. ####  help() function:
 
-   This function is used to get the documentation of specified module, class, functions. This method is generally used with Python interpreter console. 
+   This function is used to get the documentation of specified module, class, functions. This method is generally used with Python interpreter console.
 
    Syntax: `help([object])`
 
    ```python
    >>> help()
-   
+
    Welcome to Python 3.7's help utility!
-   
+
    If this is your first time using Python, you should definitely check out
    the tutorial on the Internet at https://docs.python.org/3.7/tutorial/.
-   
+
    Enter the name of any module, keyword, or topic to get help on writing
    Python programs and using Python modules.  To quit this help utility and
    return to the interpreter, just type "quit".
-   
+
    To get a list of available modules, keywords, symbols, or topics, type
    "modules", "keywords", "symbols", or "topics".  Each module also comes
    with a one-line summary of what it does; to list the modules whose name
    or summary contain a given string such as "spam", type "modules spam".
-   
+
    help>
    # Observe the prompt have changed from `>>>` to 'help>'
-   
+
    help> keywords
-   
+
    Here is a list of the Python keywords.  Enter any keyword to get more help.
-   
+
    False               class               from                or
    None                continue            global              pass
    True                def                 if                  raise
@@ -113,7 +129,7 @@ The Python language has a set of functions readily available for use. These func
    async               except              lambda              with
    await               finally             nonlocal            yield
    break               for                 not
-   
+
    #type `quit` to come out of help window
    ```
 
@@ -122,10 +138,10 @@ The Python language has a set of functions readily available for use. These func
    ```python
    >>> help(print)
    Help on built-in function print in module builtins:
-   
+
    print(...)
        print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
-   
+
        Prints the values to a stream, or to sys.stdout by default.
        Optional keyword arguments:
        file:  a file-like object (stream); defaults to the current sys.stdout.
@@ -133,8 +149,6 @@ The Python language has a set of functions readily available for use. These func
        end:   string appended after the last value, default a newline.
        flush: whether to forcibly flush the stream.
    ```
-
-    
 
 ### Opening and Closing files in Python
 
@@ -147,7 +161,7 @@ fileObj = open('test.txt') # Default open mode is read
 fileObj.close() # Once you open the file, you have to close
 ```
 
-It is really important to close the file, once the action on the file is completed. This makes that there no further problems like resource leaks and may cause the system to slow down and crash. 
+It is really important to close the file, once the action on the file is completed. This makes that there no further problems like resource leaks and may cause the system to slow down and crash.
 
 In Python, this can be brought to fruition using  **context managers**, which can automatically release resources after use. The sample code snippet is as below:
 
@@ -156,7 +170,7 @@ with open('test.txt','r') as file:
     print(file.read())
 ```
 
-In simple terms, Python calls  `__enter__ ` and `__exit__` methods to an object, which functions as context manager.These methods will be called by Python at the right time, during the resource management.
+In simple terms, Python calls  `__enter__ ` and `__exit__` methods to an object, which functions as context manager. These methods will be called by Python at the right time, during the resource management.
 
 Different file opening modes are as follows:
 
@@ -174,7 +188,7 @@ Different file opening modes are as follows:
 
 1. #### seek() and tell() function:
 
-   When file is opened for reading in Python, the file handle points to the beginning of the file. As we read the first line the pointer always points to the place where we ended the reading and the next read will start from there. 
+   When file is opened for reading in Python, the file handle points to the beginning of the file. As we read the first line the pointer always points to the place where we ended the reading and the next read will start from there.
 
    This happens unless we tell the file handler to move.
 
@@ -188,11 +202,9 @@ Different file opening modes are as follows:
 
     	1. 0 (default ): Beginning of file
     	2. 1 : Current file position
-    	3. 2 : End of file 
+    	3. 2 : End of file
 
    Syntax: `tell()`
-
-   
 
    ```python
    fileobj = open('test.txt')
@@ -211,9 +223,9 @@ Different file opening modes are as follows:
    fileobj.close()
    ```
 
-   
 
-   The above code snippet reads a file and uses `tell()` and `seek()` function to play around with file handler positions. The program is hosted in an open source editor to experiment with saved as [main.py][1].
+
+   The above code snippet reads a file and uses `tell()` and `seek()` functions to play around with file handler positions. The program is hosted in an open source editor to experiment with saved as [main.py][1].
 
 #### Ternary Conditional Operators
 
@@ -230,16 +242,15 @@ if a < b:
 else:
     min = b
 print(min)
-# this could would return the output of 10
+# this would return the output of 10
 ```
-
 The above code can be written in a single line as below:
 
 ```python
 a,b = 10, 20
 min = a if a < b else b
 print(min)
-# this could would return the output of 10
+# this would return the output of 10
 ```
 
 #### Enumerate() Function
@@ -301,7 +312,7 @@ Sometime "_" ( single underscore ) is used as a variable name in Python. This de
 a, _ = (1,2)
 #Tuple unpacking
 print(a)
-# the output will be 
+# the output will be
 1
 ```
 
@@ -359,8 +370,6 @@ In the above case we have two options:
    >>> a, b, *_, d = (1,2,3,4,5)
    ```
 
-
-
 ## Conclusion
 
 Though there are lot of life hacks, when using Python programming this article tried to cover some of them. More information on these great life hacks can be accessed at below sites:
@@ -374,12 +383,8 @@ Use the below sites for trying out Python code samples online:
 2. [Katacoda Python Playground][5]
 
 [ 1 ]: <https://midnightbluespottedprofessionals.suniljacob.repl.run/>
-
 [ 2 ]: <https://realpython.com/>
 [ 3 ]: https://www.youtube.com/watch?v=C-gEQdGVXbk&feature=youtu.be
 [ 4 ]: https://repl.it
 [ 5 ]: <https://www.katacoda.com/courses/python/playground>
 [ 6 ]: <https://www.tiobe.com/tiobe-index/>
-
-
-
