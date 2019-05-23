@@ -36,8 +36,6 @@ The Python language has a set of functions readily available for use. These func
 
    The syntax of dir() function is `dir([object])`. It takes only one argument.
 
-
-
    ```python
    >>> x = 10
    >>> dir(x)
@@ -55,8 +53,6 @@ The Python language has a set of functions readily available for use. These func
    >>> y.upper()
    'HELLO WORLD'
    ```
-
-
 
 2. #### type() function:
 
@@ -132,8 +128,6 @@ The Python language has a set of functions readily available for use. These func
        end:   string appended after the last value, default a newline.
        flush: whether to forcibly flush the stream.
    ```
-
-
 
 ### Opening and Closing files in Python
 
