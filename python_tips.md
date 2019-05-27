@@ -161,6 +161,7 @@ fileObj = open('test.txt') # Default open mode is read
 fileObj.close() # Once you open the file, you have to close
 ```
 
+
 It is really important to close the file, once the action on the file is completed. This makes that there no further problems like resource leaks and may cause the system to slow down and crash.
 
 In Python, this can be brought to fruition using  **context managers**, which can automatically release resources after use. The sample code snippet is as below:
