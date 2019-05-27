@@ -8,5 +8,5 @@ addons:
             - jq
             - linkchecker
 script:
-#    - bash -c 'shopt -s globstar; shellcheck **/*.{sh,ksh,bash}'
+    - shellcheck script.sh
     - bash script.sh

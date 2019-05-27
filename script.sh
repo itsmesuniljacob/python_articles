@@ -1,5 +1,5 @@
 #!/bin/bash
-# requires apt packages: aspell, aspell-en, aspell-fr
+# shellcheck disable=SC2016
 
 [[ "$TRAVIS_PULL_REQUEST" == "false" ]] && exit 0 # bypass script if not a pull request
 
@@ -8,7 +8,7 @@ GREEN='\033[0;32m'
 BLUE='\033[0;36m'
 NC='\033[0m' # No Color
 
-MARKDOWN_FILES_CHANGED=$((git diff --name-only $TRAVIS_COMMIT_RANGE || true) | grep .md)
+MARKDOWN_FILES_CHANGED=$( (git diff --name-only "$TRAVIS_COMMIT_RANGE" || true) | grep .md)
 
 if [ -z "$MARKDOWN_FILES_CHANGED" ]
 then
@@ -21,7 +21,7 @@ echo -e "$BLUE>> Following markdown files were changed in this pull request (com
 echo "$MARKDOWN_FILES_CHANGED"
 
 # cat all markdown files that changed
-TEXT_CONTENT=$(cat $(echo "$MARKDOWN_FILES_CHANGED" | sed -E ':a;N;$!ba;s/\n/ /g'))
+TEXT_CONTENT=$(cat "$(echo "$MARKDOWN_FILES_CHANGED" | sed -E ':a;N;$!ba;s/\n/ /g')")
 # remove metadata tags
 TEXT_CONTENT=$(echo "$TEXT_CONTENT" | grep -v -E '^(layout:|permalink:|date:|date_gmt:|authors:|categories:|tags:|cover:)(.*)')
 # remove { } attributes
