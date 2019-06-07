@@ -2,34 +2,72 @@
 
 Python is an interpreted, high level, general purpose programming language which was initially designed by Guido van Rossum in 1991. Python has evolved over the years and is one of the top 5 popular programming languages as of May 2019, as per [TIOBE index][6].  Code readability, simplified syntax, compatibility with many operating systems, robust libraries makes the language widely used for creating a great applications.
 
-While Python is widely used nowadays, it's also better to know a language in terms of it's disadvantages as well. No language is perfect, some are better than others. Some of the weak spots of the language is as below:
+While Python is widely used nowadays, it's also better to know a language in terms of it's disadvantages as well. No language is perfect, some are better than others. 
 
-1. Python is not a preferred language for mobile computing
+## Weak spots of Python
 
-2. Susceptible to run time errors, since Python is dynamically typed language; it only translates and type-checks code it's executing on
+1. Python is not a preferred language for mobile computing. The language is also not present in web development browsers. Python is hard to secure, and that's why it is not in browsers. Source: [Medium Article][7]
+
+2. Susceptible to run time errors, since Python is dynamically typed language; it only translates and type-checks code it's executing on.  A programming language is said to be dynamically typed, or just 'dynamic', when the majority of its type checking is performed at run-time as opposed to at compile-time.
+
+   > **Interpreted:** Code translated into machine language instructions on the fly, during execution
+   >
+   > **Typing:** This is process when data types are checked. Two categories:
+   >
+   > - **Static:** Data types checked before run time
+   >
+   > - **Dynamic:** Data types are checked on the fly, during execution
 
    ```python
-   def dynamic(a):
-       if a > 0:
-           print('Am dynamically typed')
-       else:
-           print("3"+5)
-   dynamic(2)
+def dynamic(a):
+    if a > 0:
+        print('Am dynamically typed')
+     else:
+        print("3"+5)
+dynamic(2) # Calling function and passing value 2.
    ```
 
-   Since, Python is both interpreted and dynamically typed, the else block is never executes.
 
-3. Does not have access modifiers
+The above snippet demonstrates the weak side of dynamically typed languages. When the `dynamic` function is called with a value of `2`, as in the given example, the else section is not executed, and therefore not checked. Only when the value passed to the `dynamic` function is less than 1, in this example, the `else` block is executed and will raise an error as below:
 
-> Quick Note: Python implementation consists of an interpreter. However, some Python implementations, do consist of just-in-time compiler that will compile Python byte code into native machine code.
+   ```python
+def dynamic(a):
+    if a > 0:
+        print('Am dynamically typed')
+    else:
+        print("3"+5)
+dynamic(-1) # Calling function and passing value 2.
+   
+>>> python .\static_dynamic_typed.py
+Traceback (most recent call last):
+File ".\static_dynamic_typed.py", line 6, in <module>
+  dynamic(-1) # Calling function and passing value 2
+File ".\static_dynamic_typed.py", line 5, in dynamic
+  print("3"+5)
+   ```
 
-Source code is translated into byte code, which is then run by a Python virtual machine. The code is automatically compiled, but then interpreted.
+   Making it simple, the type checking does not happen in Python until the line never executes.
+
+3. Does not have access modifiers or by default all the variables and member functions of a class are `public` in Python. It is allowed to to access an instance variable from outside. Python uses single underscore prefix for a variable to denote a private method. It does not change the access privilege as in languages like JAVA or C#
+
+4. Speed limitations because Python code is executed line by line. But when python is interpreted, it often results in slow execution than other popular languages.
+
+5. Simplicity of Python programming language syntax makes programmer more of a Python person, because of which sometimes shifting to a new language will be harder
+
+Having canvassed about the fine points and weak spots of Python, it's time to be thick with the language.
+
+##  Python Bytes
 
 Python is a programming language as well as scripting language. Some of the features of Python are listed below:
 
 1. Object Oriented
 2. Free ( Open Source)
 3. Portable
+
+> Quick Note: Python implementation consists of an interpreter. However, some Python implementations, do consist of just-in-time compiler that will compile Python byte code into native machine code.
+> Source: [article][8]
+
+Source code is translated into byte code, which is then run by a Python virtual machine. The code is automatically compiled, but then interpreted.
 
 There are two major versions of Python : 2.x and 3.x. Both are quite different. The samples shown in this article are using 3.x version of Python.  3.x is non-backward compatible version of Python and hence it is recommended to use 3.x version of Python, when building a new application. Below is the most well known change between Python 2.x and 3.x:
 
@@ -43,7 +81,9 @@ There are two major versions of Python : 2.x and 3.x. Both are quite different. 
 >
 > `print` is a function in Python 3.x
 
-This article would discuss some of the useful stubs while working with Python language. It's assumed that readers have basic knowledge of programming and Python language. The inspiration for this article was of the fact of writing readable and cleaner code. A later series of this article will be followed.
+This article would discuss some of the useful stubs while working with Python language. It's assumed that readers have basic knowledge of programming and Python language. This article is focusing on writing readable and cleaner code. It is part of a planned series of articles.
+
+## Tips & Tricks
 
 Some of the tips & tricks while using Python language are as below:
 
@@ -388,3 +428,8 @@ Use the below sites for trying out Python code samples online:
 [ 4 ]: https://repl.it
 [ 5 ]: <https://www.katacoda.com/courses/python/playground>
 [ 6 ]: <https://www.tiobe.com/tiobe-index/>
+
+[ 7 ]: <https://medium.com/@mindfiresolutions.usa/advantages-and-disadvantages-of-python-programming-language-fd0b394f2121>
+
+[ 8 ]: <https://www.quora.com/Is-Python-compiled-or-interpreted-or-both>
+
