@@ -8,5 +8,5 @@ addons:
             - jq
             - linkchecker
 script:
-    - shellcheck main.sh
+    - shellcheck -x main.sh
     - bash main.sh
