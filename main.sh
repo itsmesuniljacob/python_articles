@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# shellcheck source=spell_checker.sh
 source spell_checker.sh
 
 echo -e "\e[44mStarting main script...$NC"
