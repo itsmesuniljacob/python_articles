@@ -8,5 +8,5 @@ addons:
             - jq
             - linkchecker
 script:
-    - shellcheck -x main.sh
-    - bash main.sh
+    - shellcheck -x tests/spellchecker/spell_checker.sh
+    - bash tests/spellchecker/spell_checker.sh
