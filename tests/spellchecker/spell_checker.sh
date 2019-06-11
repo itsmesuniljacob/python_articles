@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# shellcheck disable=SC2016
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 BLUE='\033[0;36m'
@@ -12,7 +13,7 @@ check_if_travis_pr() {
 }
 
 check_git_diff() {
-  MARKDOWN_FILES_CHANGED=$( (git diff --name-only || true) | grep .md)
+  MARKDOWN_FILES_CHANGED=$( (git diff --name-only $TRAVIS_COMMIT_RANGE || true) | grep .md)
   if [ -z "$MARKDOWN_FILES_CHANGED" ]
   then
       echo -e "$GREEN>> No markdown file to check $NC"
@@ -27,7 +28,7 @@ check_git_diff() {
 clean_text_content() {
   MARKDOWN_FILES_CHANGED=$1
   # cat all markdown files that changed
-  TEXT_CONTENT=$(cat $(echo "$MARKDOWN_FILES_CHANGED" | sed -E ':a;N;$!ba;s/\n/ /g'))
+  TEXT_CONTENT=$(cat "$(echo "$MARKDOWN_FILES_CHANGED" | sed -E ':a;N;$!ba;s/\n/ /g')")
   # remove metadata tags
   TEXT_CONTENT=$(echo "$TEXT_CONTENT" | grep -v -E '^(layout:|permalink:|date:|date_gmt:|authors:|categories:|tags:|cover:)(.*)')
   # remove { } attributes
