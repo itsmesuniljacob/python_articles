@@ -413,7 +413,6 @@ In the above case we have two options:
 ## Conclusion
 
 Though there are lot of life hacks, when using Python programming this article tried to cover some of them. More information on these great life hacks can be accessed at below sites:
-test
 
 1. [Real Python][2]
 2. [10 Python tips and tricks][3]
