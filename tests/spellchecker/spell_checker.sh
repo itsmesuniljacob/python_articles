@@ -13,7 +13,7 @@ check_if_travis_pr() {
 }
 
 check_git_diff() {
-  MARKDOWN_FILES_CHANGED=$( (git diff --name-only $TRAVIS_COMMIT_RANGE || true) | grep .md)
+  MARKDOWN_FILES_CHANGED=$( (git diff --name-only "$TRAVIS_COMMIT_RANGE" || true) | grep .md)
   if [ -z "$MARKDOWN_FILES_CHANGED" ]
   then
       echo -e "$GREEN>> No markdown file to check $NC"
