@@ -1,0 +1,5 @@
+runner:
+  shellcheck:
+    cmd: shellcheck -x tests/spellchecker/spell_checker.sh
+    errorformat:
+      - "%f:%l:%c: %m" 
