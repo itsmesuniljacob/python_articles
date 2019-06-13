@@ -10,4 +10,4 @@ addons:
 script:
     - shellcheck -x tests/spellchecker/spell_checker.sh
     - bash tests/spellchecker/spell_checker.sh
-    - echo "Completed"
+    - reviewdog -reporter=github-prcheck
