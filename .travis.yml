@@ -10,4 +10,3 @@ addons:
 script:
     - shellcheck -x tests/spellchecker/spell_checker.sh
     - bash tests/spellchecker/spell_checker.sh
-    - reviewdog -reporter=github-prcheck
