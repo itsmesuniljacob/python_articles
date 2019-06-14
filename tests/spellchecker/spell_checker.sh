@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2016
+
 #RED='\033[0;31m'
 GREEN='\033[0;32m'
 BLUE='\033[0;36m'
